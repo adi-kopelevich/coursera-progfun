@@ -52,6 +52,8 @@ object HigherOrderFunctions extends App {
     loop(a, 0)
   }
 
+
+
   println(sum(x => x)(1, 5))
   println(sum(x => x * x)(3, 5))
 
