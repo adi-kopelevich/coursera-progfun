@@ -12,26 +12,6 @@ object FunctionsAndData extends App {
 
     def this(x: Int) = this(x,1) // ctor overloading...
 
-    private val g = gcd(x, y)
-
-    val numer = x / g
-    val denom = y / g
-
-    def add(s: Rational): Rational = {
-      new Rational(numer * s.denom + denom * s.numer, denom * s.denom)
-    }
-
-    def sub(s: Rational): Rational = {
-      add(s.neg)
-    }
-
-    def neg: Rational = {
-      new Rational(-numer, denom)
-    }
-
-    def less(s: Rational) = numer * s.denom < s.numer * denom
-
-    def max(s: Rational) = if (this.less(s)) this else s
 
     private def gcd(a: Int, b: Int): Int = {
       if (b == 0)
@@ -39,6 +19,28 @@ object FunctionsAndData extends App {
       else
         gcd(b, a % b)
     }
+
+    private val g = gcd(x, y)
+
+    def numer = x / g
+    def denom = y / g
+
+    def + (s: Rational): Rational = {
+      new Rational(numer * s.denom + denom * s.numer, denom * s.denom)
+    }
+
+    def - (s: Rational): Rational = {
+      this + -s
+    }
+
+    def unary_- : Rational = {
+      new Rational(-numer, denom)
+    }
+
+    def < (s: Rational) = numer * s.denom < s.numer * denom
+
+    def max(s: Rational) = if (this < s) this else s
+
 
     override def toString(): String = {
       numer + "/" + denom
@@ -56,10 +58,10 @@ object FunctionsAndData extends App {
   println(rationalNum1.toString)
   println(rationalNum2.toString)
   println(rationalNum3.toString)
-  println(rationalNum1.neg.toString)
-  println(rationalNum1.add(rationalNum2).toString)
-  println(rationalNum1.sub(rationalNum2).toString)
-  println(rationalNum1.sub(rationalNum2).sub(rationalNum3))
-  println(rationalNum1.add(rationalNum1))
+  println(-rationalNum1)
+  println(rationalNum1 + rationalNum2)
+  println(rationalNum4 - rationalNum1)
+  println(rationalNum1 - rationalNum2 - rationalNum3)
+
 }
 
