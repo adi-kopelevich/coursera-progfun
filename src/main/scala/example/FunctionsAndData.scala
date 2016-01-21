@@ -1,4 +1,4 @@
-package week1
+package example
 
 /**
   * Created by adiko on 18/01/2016.

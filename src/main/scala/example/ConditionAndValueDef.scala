@@ -1,4 +1,4 @@
-package week1
+package example
 
 import sun.jvm.hotspot.runtime.amd64.AMD64CurrentFrameGuess
 
