@@ -1,6 +1,6 @@
-package example
+package example.polymorphism
 
-import example.polymorphism.{ConsList, NilList}
+import example.polymorphism
 
 /**
   * Created by adiko on 21/01/2016.
