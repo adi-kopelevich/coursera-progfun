@@ -1,17 +1,14 @@
 package example.polymorphism
 
-import java.util.NoSuchElementException
-
-import org.specs2.mock.Mockito
+import com.wixpress.hoopoe.test._
 import org.specs2.mutable.SpecificationWithJUnit
 import org.specs2.specification.Scope
-import com.wixpress.hoopoe.test._
 
 
 /**
   * Created by adiko on 21/01/2016.
   */
-class ConsListTest extends SpecificationWithJUnit with Mockito {
+class ConsListTest extends SpecificationWithJUnit {
 
 
   class ctx extends Scope {

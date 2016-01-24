@@ -16,8 +16,10 @@ trait List[T] {
     anotherList match {
       case that: List[T] =>
         isEmpty && that.isEmpty ||
-        head == that.head && tail.equals(that.tail)
+          head == that.head && tail.equals(that.tail)
       case _ => false
     }
   }
 }
+
+
