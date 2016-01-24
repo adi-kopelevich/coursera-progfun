@@ -2,8 +2,6 @@ package example.polymorphism
 
 import example.polymorphism
 
-import scala.runtime.Nothing$
-
 /**
   * Created by adiko on 21/01/2016.
   */

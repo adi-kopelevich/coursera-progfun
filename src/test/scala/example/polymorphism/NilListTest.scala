@@ -1,8 +1,5 @@
 package example.polymorphism
 
-import java.util.NoSuchElementException
-
-import com.wixpress.hoopoe.test._
 import org.specs2.mutable.Specification
 import org.specs2.specification.Scope
 
