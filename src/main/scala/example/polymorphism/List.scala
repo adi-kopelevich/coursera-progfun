@@ -3,7 +3,7 @@ package example.polymorphism
 /**
   * Created by adiko on 21/01/2016.
   */
-trait List[T] {
+trait List[+T] {
   def isEmpty: Boolean
 
   def head: T

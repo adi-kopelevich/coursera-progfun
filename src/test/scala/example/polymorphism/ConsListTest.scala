@@ -18,12 +18,12 @@ class ConsListTest extends SpecificationWithJUnit {
     val list = new ConsList[Int](firstElement,
       new ConsList[Int](secondElement,
         new ConsList[Int](thirdElement,
-          new NilList[Int])))
+           NilList)))
 
     val listTail =
       new ConsList[Int](secondElement,
         new ConsList[Int](thirdElement,
-          new NilList[Int]))
+          NilList))
 
   }
 

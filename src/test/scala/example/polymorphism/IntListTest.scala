@@ -17,14 +17,14 @@ class IntListTest extends SpecificationWithJUnit {
 
   "given no params, IntList" should {
     "return an empty list" in new ctx {
-      IntList() must beEqualTo(new NilList)
+      IntList() must beEqualTo(NilList)
     }
   }
 
   "given one param, IntList(x)" should {
     "return an list with one element x" in new ctx {
       val element = randomInt
-      IntList(element) must beEqualTo(new ConsList[Int](element, new NilList[Int]))
+      IntList(element) must beEqualTo(new ConsList[Int](element, NilList))
     }
   }
 
@@ -35,7 +35,7 @@ class IntListTest extends SpecificationWithJUnit {
 
       IntList(firstElement, secondElement) must beEqualTo(new ConsList[Int](firstElement,
         new ConsList[Int](secondElement,
-          new NilList[Int])))
+          NilList)))
     }
   }
 

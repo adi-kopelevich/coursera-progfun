@@ -6,15 +6,15 @@ package example.polymorphism
 object IntList {
 
   def apply(): List[Int] = {
-    new NilList[Int]
+    NilList
   }
 
   def apply(x: Int): List[Int] = {
-    new ConsList[Int](x, new NilList[Int])
+    new ConsList[Int](x, NilList)
   }
 
   def apply(x: Int, y: Int): List[Int] = {
-    new ConsList[Int](x, new ConsList[Int](y, new NilList[Int]))
+    new ConsList[Int](x, new ConsList[Int](y, NilList))
   }
 
 }

@@ -7,7 +7,7 @@ import example.polymorphism
   */
 class Polymorphism {
 
-  def singleton[T](elem: T) = new ConsList[T](elem, new NilList[T])
+  def singleton[T](elem: T) = new ConsList[T](elem,  NilList)
 
   singleton[Int](1)
   singleton(1)
