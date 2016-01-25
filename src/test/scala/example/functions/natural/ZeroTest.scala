@@ -1,4 +1,4 @@
-package example.functions
+package example.functions.natural
 
 import org.specs2.mutable.SpecificationWithJUnit
 import org.specs2.specification.Scope
