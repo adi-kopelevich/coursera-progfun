@@ -29,6 +29,16 @@ class ListsExampleTest extends Specification {
     }
   }
 
+  "given a list of ints, msort" should {
+    "sort the elements in the list" in new Context {
+      ListsExample.msort(listOfInts1) must beEqualTo(sortedListOfInts)
+    }
+
+    "sort the elements in the list with repeats" in new Context {
+      ListsExample.msort(listOfIntsWithRepeat) must beEqualTo(sortedListOfIntsWithRepeat)
+    }
+  }
+
   "given a list of ints, init" should {
     "return a list consisting of the all elements except the last one" in new Context {
       ListsExample.init(listOfInts1) must beEqualTo(initOfListOfInits)
