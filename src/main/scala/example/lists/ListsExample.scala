@@ -23,12 +23,14 @@ object ListsExample extends App {
   println(fruit.equals(fruit2))
   println(fruit.equals(fruit3))
   println(fruit.equals(fruit4))
+
   def isort(xs: List[Int]): List[Int] = {
     xs match {
       case List() => List()
       case head :: tail => insert(head, isort(tail))
     }
   }
+
   def insert(listElement: Int, sortedList: List[Int]): List[Int] = {
     sortedList match {
       case List() => listElement :: Nil
@@ -41,34 +43,33 @@ object ListsExample extends App {
     }
   }
 
-
-  def msort(xs: List[Int]): List[Int] = {
+  def msort[T](xs: List[T])(implicit ordering: Ordering[T]): List[T] = {
     xs match {
       case List() => List()
       case List(x) => List(x)
       case List(x, y) => {
-        if (x <= y)
+        if (ordering.lt(x, y))
           xs
         else
           xs.reverse
       }
-      case list: List[Int] => {
+      case list: List[T] => {
         val whereToChop = list.length / 2
         val (listPrefix, listSuffix) = list splitAt whereToChop
-        merge(msort(listPrefix), msort(listSuffix))
+        merge[T](msort[T](listPrefix)(ordering), msort[T](listSuffix)(ordering))(ordering)
       }
     }
   }
 
-  def merge(list1: List[Int], list2: List[Int]): List[Int] = {
-    (list1 , list2) match {
-      case (List() ,  _) => list2
-      case (_ , List()) => list1
+  def merge[T](list1: List[T], list2: List[T])(implicit ordering: Ordering[T]): List[T] = {
+    (list1, list2) match {
+      case (List(), _) => list2
+      case (_, List()) => list1
       case (head1 :: tail1, head2 :: tail2) => {
-        if (head1 < head2)
-          head1 :: merge(tail1, list2)
+        if (ordering.lt(head1, head2))
+          head1 :: merge(tail1, list2)(ordering)
         else
-          head2 :: merge(list1, tail2)
+          head2 :: merge(list1, tail2)(ordering)
       }
     }
   }

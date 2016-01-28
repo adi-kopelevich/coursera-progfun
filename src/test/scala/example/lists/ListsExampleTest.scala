@@ -17,6 +17,14 @@ class ListsExampleTest extends Specification {
     val listsofInt2 = 1 :: 2 :: 3 :: Nil
     val concatOfList1andList2 = 9 :: 4 :: 2 :: 7 :: 3 :: 1 :: 2 :: 3 :: Nil
     val listOfInts1WithoutThe4thElement = 9 :: 4 :: 2 :: 3 :: Nil
+    def lessThanInt(x: Int, y: Int): Boolean = x < y
+
+  }
+
+  abstract class StringContext extends Scope {
+    val listOfStrings = List("banana", "orange", "pineapple", "apple")
+    val sortedListOfStrings = List("apple", "banana", "orange", "pineapple")
+    def lessThanString(x: String, y: String): Boolean = x.compareTo(y) < 0
   }
 
   "given a list of ints, isort" should {
@@ -72,6 +80,12 @@ class ListsExampleTest extends Specification {
   "given a lists of that contains List[Int] as well as Int elements, flatten" should {
     "return a list containing all the Int elements flattend to the same list" in new Context {
       ListsExample.flatten(List(List(1, 1), 2, List(3, List(5, 8)))) must beEqualTo(List(1, 1, 2, 3, 5, 8))
+    }
+  }
+
+  "given a list of strings, msort" should {
+    "sort the elements in the list" in new StringContext {
+      ListsExample.msort(listOfStrings) must beEqualTo(sortedListOfStrings)
     }
   }
 
