@@ -1,7 +1,5 @@
 package example.lists
 
-import scala.runtime.Nothing$
-
 /**
   * Created by adiko on 25/01/2016.
   */
