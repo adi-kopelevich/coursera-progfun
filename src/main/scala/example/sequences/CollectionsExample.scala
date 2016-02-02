@@ -11,7 +11,7 @@ object CollectionsExample extends App {
   }
 
   def isPrime(n: Int) = {
-    !((2 to n-1).exists(x => n % x == 0))
+    !(2 until n).exists(x => n % x == 0)
   }
 
   val intArray = Array(1, 2, 3, 44)
