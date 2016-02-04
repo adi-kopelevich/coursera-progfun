@@ -31,8 +31,8 @@ object ConditionAndValueDef {
   def main(args : Array[String]){
     println(sqrt(2))
     println(sqrt(4))
-    println(sqrt(1e-6)) // - not percies for small numbers
-    println(sqrt(1e60)) // - not termination for large number
+    println(sqrt(1e-6)) // - not percies expressions small numbers
+    println(sqrt(1e60)) // - not termination expressions large number
 
   }
 

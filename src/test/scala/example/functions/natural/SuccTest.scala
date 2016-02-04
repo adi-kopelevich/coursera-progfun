@@ -37,7 +37,7 @@ class SuccTest extends SpecificationWithJUnit {
       one + one must beEqualTo(two)
     }
 
-    "- X must return the Succ for the diff" in new ctx {
+    "- X must return the Succ expressions the diff" in new ctx {
       val one = new Succ(Zero)
       val two = new Succ(one)
       two - one must beEqualTo(one)
