@@ -18,10 +18,18 @@ class QueriesWithFor {
   def findAuthorsBooks(library: List[Book], authorName: String): List[String] = {
     for {
       book <- library
-      authors <- book.authors
-      if authors contains authorName
+      author <- book.authors
+      if author == authorName
     } yield
       book.title
+
+//    Compiler translate for expression using flatmap (multi generator), withFilter (conditions) and map(yield result)
+//
+//    library.flatMap(book => book.authors
+//      withFilter(author => author == authorName)
+//      map(book => book.title))
+//    )
+
   }
 
   def findAuthorsBooks(library: List[Book], n: Int) = {
